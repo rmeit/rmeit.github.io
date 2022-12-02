@@ -1,0 +1,675 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Portfolio</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="b1d421fb-b096-4b51-8f69-9a39d48797df" class="page sans"><header><h1 class="page-title">Portfolio</h1></header><div class="page-body"><h1 id="c47b06bb-85d7-4476-9a22-7b0f03440993" class="">Selected Projects</h1><p id="762a6ea2-2dba-4749-8e1c-5641e794bf33" class="">
+</p><div id="6841a814-b54d-405a-9a44-b7ffa6bd11bc" class="column-list"><div id="32f1e2b2-4843-4aa2-a6e5-8ac3d5601467" style="width:50%" class="column"><p id="417b05d1-37a8-49ed-85e0-af0d40826a3e" class=""><strong>3-D Localization of Micromanipulators Using Microscopy for Autonomous Visual Servoing (In-Progress)</strong></p><p id="44e63ae6-ad61-4a6d-8a6c-4738039fb0f6" class=""><mark class="highlight-blue"><a href="https://opg.optica.org/abstract.cfm?uri=COSI-2022-JW5C.1">Presented at Optica Imaging and Applied Optics Congress 2022</a></mark></p><p id="50f209b7-c160-4dd4-844d-b61fab8f8d38" class="">We developed a method to rapidly determine the 3-D position of a glass-pipette micromanipulator using color-coded illumination and optical microscopy. This technology has potential to enable autonomous visual servoing and multi-manipulator systems for highly parallelized cell manipulation.</p><figure id="fb3158d9-879e-40d3-aa12-0fb2220a7218" class="image" style="text-align:center"><a href="Portfolio%20b1d421fbb0964b518f699a39d48797df/Untitled.png"><img style="width:240px" src="Portfolio%20b1d421fbb0964b518f699a39d48797df/Untitled.png"/></a></figure><p id="466c0bbb-59c3-4da3-beb8-bb9103957771" class="">
+</p></div><div id="3d1df13d-7ccf-4875-b748-b14ab0c13797" style="width:50.00000000000002%" class="column"><figure id="2668aea1-3252-4728-9239-17cdd7770297" class="image"><a href="Portfolio%20b1d421fbb0964b518f699a39d48797df/Untitled%201.png"><img style="width:863px" src="Portfolio%20b1d421fbb0964b518f699a39d48797df/Untitled%201.png"/></a></figure></div></div><hr id="2e4b2f8b-32a1-483e-aeb5-afddc6dcead6"/><div id="4a611c5b-1443-48fa-8604-1cf9999535bf" class="column-list"><div id="22d4332d-a92f-4f8d-89f8-7c855661b376" style="width:50%" class="column"><p id="d475dcb3-7b90-47a3-91ed-b8ed78b19f67" class=""><strong>Pycro-Manager: open-source software for customized and reproducible microscope control</strong></p><p id="e92462b2-28c9-4dde-8722-f65e752bfe92" class=""><mark class="highlight-blue"><a href="https://www.nature.com/articles/s41592-021-01087-6">Nature Methods Article</a></mark><mark class="highlight-blue">  </mark><mark class="highlight-blue"><a href="https://pycro-manager.readthedocs.io/en/latest/">Documentation</a></mark>  </p><p id="62e94141-0612-4958-b42c-923f1aeea010" class="">Pycro-Manager is a multi-purpose python package for the control of microscope hardware and the acquisition of data. It is designed for performance and flexibility to be used in a variety of applications, ranging from automating data collection across multiple microscopes for high-throughput biology, to enabling easier control of microscopes in academic labs.</p></div><div id="f0feec50-bf4d-4c77-ba6e-d64b339ad72c" style="width:50%" class="column"><figure id="33ffcf04-70c7-4af9-9144-4d5978ff8265" class="image"><a href="Portfolio%20b1d421fbb0964b518f699a39d48797df/Untitled.webp"><img style="width:1742px" src="Portfolio%20b1d421fbb0964b518f699a39d48797df/Untitled.webp"/></a></figure></div></div><hr id="75d4b24e-ede2-42e6-a897-67a0ccdb64a2"/><div id="bab04cd5-7ef6-4496-a754-fa1a4a902d49" class="column-list"><div id="2e812f03-d5b2-461b-9c41-391195082cd5" style="width:56.25%" class="column"><p id="8b3a239e-393c-4218-aa98-caac75a34c18" class=""><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Compact Optical Coherence Tomography with a Broadband Superluminescent Diode (In-Progress)</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></p><p id="256e919c-d41e-4fe4-8dce-d6e7b221e559" class="">We are currently working on fabricating a spectral domain OCT system for retinal images that utilizes broadband SLD. The focus of the project is to engineer a portable and affordable eye imaging device.</p></div><div id="f1a89213-e29e-418f-a18f-08a8d8cdedd4" style="width:43.74999999999999%" class="column"><figure id="c7c9220c-a6ee-4f4d-883c-00fcf21e8413" class="image"><a href="Portfolio%20b1d421fbb0964b518f699a39d48797df/oct.png"><img style="width:536px" src="Portfolio%20b1d421fbb0964b518f699a39d48797df/oct.png"/></a></figure></div></div><hr id="98823767-b25d-4445-b430-6b1db03ee6f8"/><p id="a133e979-98b4-41d4-bafc-d7a01c3abba1" class=""><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Scoplet: Compact Holograpic Computational Microscopy</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></p><hr id="0845991a-798e-40f3-a48a-d65ad25c0afa"/><p id="b451e96a-845b-4056-bbb2-eab736db447b" class="">
+</p><div id="abfe20bf-632d-4350-a2a1-7ef6787896bf" class="column-list"><div id="0a57bc36-7076-4990-b379-d20422383f62" style="width:74.99999999999999%" class="column"><p id="693b386a-cfa3-45bf-af47-fd599e7406d8" class=""><strong>Berkeley Single Blood Cell Microscopy (BSBCM) Dataset</strong></p><p id="94791546-45de-4e27-a509-58ade8dc1e67" class="">With Henry Pinkard in the UC Berkeley Computational Imaging Lab, we collected microscopy images of 412,000 individual blood cells using coded illumination to reconstruct label-free brightfield, darkfield, and quantitative phase contrast images of the cells. We also imaged the cells with 6 fluorescent probes labeling major cellular components (membrane, nucleus, mitchondria, etc.), and brightfield images of histology stains.</p><p id="17bd7c9f-587f-4942-ac80-928794a1661f" class="">To investigate the information overlap between the label-free microscopy methods and the chemically labeled (fluorescent and histology) methods, we trained a vector-quantized variational autoencoder (VQ-VAE) to try and predict the labeled images using the label-free images as input. We found that quantitative phase is especially rich in morphological information. </p><p id="30d63393-9eea-4b16-ae60-b80fc1bf997c" class="">Sampling the latent space of the VQ-VAE and performing a UMAP on the output for the entire dataset, we found that the encoder was effectively encoding information about the cell type of the different blood cells in the dataset.</p><p id="ef495c08-6354-4bb1-bedd-07ea6b2740c4" class="">
+</p></div><div id="a005d4c4-4540-4003-af15-fefad0254eba" style="width:24.999999999999996%" class="column"><figure id="fc6aac2a-8c2e-43b4-9051-1ace27b95814" class="image"><a href="Portfolio%20b1d421fbb0964b518f699a39d48797df/Untitled%202.png"><img style="width:635px" src="Portfolio%20b1d421fbb0964b518f699a39d48797df/Untitled%202.png"/></a></figure><figure id="7977751f-b92d-4fc2-8834-63ba9d6ab7ad" class="image"><a href="Portfolio%20b1d421fbb0964b518f699a39d48797df/Untitled%203.png"><img style="width:1253px" src="Portfolio%20b1d421fbb0964b518f699a39d48797df/Untitled%203.png"/></a></figure></div></div><hr id="eaa9dd70-f11d-4ef2-8008-90fa1ecf188d"/><div id="6c4981f7-2468-456d-b6b4-bde9957cf6bc" class="column-list"><div id="b2e5d083-e4ee-4fda-baf0-4415a811af1d" style="width:50%" class="column"><p id="c55d0b92-93df-4310-a660-c5944e49cd36" class=""><strong>Measuring K-fiber and Interpolar Microtubule Chirality Throughout Mitosis</strong></p><p id="72976fa8-f0f9-4b36-af6a-1c3ca2970f06" class="">The mitotic spindle is an incredibly complex mechanism composed of a self-assembling molecular structure that physically separates chromosomes to the two daughter cells during mitosis. This structure of microtubules, microtubules associated proteins (motors, crosslinker, etc.), and the kinetochore, enables the persistence of eukaryotic life on Earth.</p><p id="6f2d825f-5463-4a9b-8490-7151ab6b2b48" class="">Using 3D lattice light sheet microscopy in the <a href="http://abc.berkeley.edu/capabilities/">MOSAIC</a> at the Advanced Bioimaging Center at UC Berkeley, we were one of the first researchers to characterize the presence of chirality, or “twist” in the fibers of the mitotic spindle, during cell division.</p></div><div id="56f2490e-9b6c-4991-b19b-bd938ab8ed8f" style="width:16.666666666666664%" class="column"><figure id="ed452090-4847-4d87-98af-9329c84ca54a" class="image"><a href="Portfolio%20b1d421fbb0964b518f699a39d48797df/Composite_2-1_AdobeExpress(1).gif"><img style="width:240px" src="Portfolio%20b1d421fbb0964b518f699a39d48797df/Composite_2-1_AdobeExpress(1).gif"/></a></figure><figure id="7307bed2-6363-447c-afe6-642199b8f5e1" class="image"><a href="Portfolio%20b1d421fbb0964b518f699a39d48797df/2fast_AdobeExpress.gif"><img style="width:144px" src="Portfolio%20b1d421fbb0964b518f699a39d48797df/2fast_AdobeExpress.gif"/></a></figure></div><div id="47e6b8db-0b27-4596-8dc1-c9782d78821f" style="width:33.33333333333334%" class="column"><figure id="2ce644b6-8ba2-4b14-98ee-aad94cee4982" class="image" style="text-align:right"><a href="Portfolio%20b1d421fbb0964b518f699a39d48797df/Screen_Recording_2022-04-01_at_12_22_26_PM_AdobeExpress.gif"><img style="width:288px" src="Portfolio%20b1d421fbb0964b518f699a39d48797df/Screen_Recording_2022-04-01_at_12_22_26_PM_AdobeExpress.gif"/></a></figure></div></div><hr id="1786dbc0-fe3a-4cf4-9532-e33450b4ee57"/><h1 id="f7a13c56-c027-47c0-95c8-af21f97722c3" class="">Projects</h1><p id="732a2f04-1d15-4c06-9452-52ea6dd0f607" class="">Neural Style Transfer</p><p id="31eb7fbe-79c8-4039-baf3-af01981e9914" class=""><mark class="highlight-blue"><a href="https://inst.eecs.berkeley.edu/~cs194-26/fa21/upload/files/proj1/cs194-26-aat/ryan_mei_proj1/"><strong>Colorizing the Prokudin-Gorskii Photo Collection</strong></a></mark><mark class="highlight-blue"><strong>. </strong></mark><strong>Reconstructing some of the first ever color photographs.</strong></p><div id="9c62a9af-318a-47d0-a228-999b4534f77e" class="column-list"><div id="b41313fa-b1c3-42b3-8740-b6bbf9e5b09c" style="width:29.166666666666664%" class="column"><figure id="480b3fe0-2021-4d47-8b16-13724323812b" class="image" style="text-align:center"><a href="Portfolio%20b1d421fbb0964b518f699a39d48797df/Untitled%204.png"><img style="width:120px" src="Portfolio%20b1d421fbb0964b518f699a39d48797df/Untitled%204.png"/></a><figcaption>Raw RGB glass plate</figcaption></figure></div><div id="57d095f6-7186-432b-bba2-b5837e11965c" style="width:37.500000000000014%" class="column"><figure id="a9e3cc98-3d03-4bd1-bbee-321e8537743c" class="image"><a href="Portfolio%20b1d421fbb0964b518f699a39d48797df/Untitled%205.png"><img style="width:345px" src="Portfolio%20b1d421fbb0964b518f699a39d48797df/Untitled%205.png"/></a><figcaption>Reconstructed</figcaption></figure></div><div id="074fbc14-d391-435a-bf7c-0777e81b6d4e" style="width:33.33333333333333%" class="column"><figure id="343d633a-5e3f-4399-8462-c14342916659" class="image"><a href="Portfolio%20b1d421fbb0964b518f699a39d48797df/Untitled%206.png"><img style="width:545px" src="Portfolio%20b1d421fbb0964b518f699a39d48797df/Untitled%206.png"/></a><figcaption>A quite beautiful icon</figcaption></figure><p id="0875e5a9-ebd0-49f5-a568-eb440a5e45af" class="">
+</p></div></div><hr id="5f856068-5102-4c61-b7fe-fadfa1e36345"/><p id="24109e2a-a2de-443c-917a-1ba68e09876c" class=""><mark class="highlight-blue"><a href="https://inst.eecs.berkeley.edu/~cs194-26/fa21/upload/files/proj3/cs194-26-aat/ryan_mei_proj3/">Face morphing.</a></mark> Exploring triangulation and affine transforms.</p><div id="947626f8-a3b2-4621-a0ed-50ac5d848618" class="column-list"><div id="906e59f5-dd26-4bb4-94f5-c1fee17bade6" style="width:50%" class="column"><figure id="bc5873de-4ec4-45e6-9bc0-c08b8b35844a" class="image" style="text-align:center"><a href="Portfolio%20b1d421fbb0964b518f699a39d48797df/Untitled.jpeg"><img style="width:250px" src="Portfolio%20b1d421fbb0964b518f699a39d48797df/Untitled.jpeg"/></a></figure></div><div id="01e6c126-fe7f-4896-a30b-39c7af4fe7a4" style="width:50%" class="column"><figure id="1ef2b7a5-54b9-4097-993d-e928409661d2" class="image" style="text-align:center"><a href="Portfolio%20b1d421fbb0964b518f699a39d48797df/Untitled.gif"><img style="width:240px" src="Portfolio%20b1d421fbb0964b518f699a39d48797df/Untitled.gif"/></a></figure></div></div><p id="de562852-a90f-4835-86c2-08b1cc447887" class="">290-2 project/Scoplet</p><p id="75981ed9-66af-4f54-ba02-c430b9d637ba" class="">123 project</p><p id="f315aae3-3bdf-45d5-b858-59ec3e4ade6c" class="">FPGA projects</p><p id="34ea7738-3df7-4f92-8d04-2a0d780d1b01" class="">
+</p></div></article></body></html>
